@@ -1,0 +1,148 @@
+@import url(componentes.css);
+
+body {
+  overflow: unset !important;
+}
+
+
+.collapse {
+  border: 1em;
+}
+
+.nav-link,
+.nav-link.active.coc {
+  color: white;
+}
+
+.nav-link.active.coc {
+  color: #E8E378 !important;
+}
+
+.cocteles{
+  color: #E8E378;
+  display: flex;
+  justify-content: center;
+  margin-top: 1%;
+}
+
+#cartas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-left: -3em;
+}
+
+.cartas img {
+  height: 200px;
+  margin-bottom: 1em;
+  width: 200px;
+}
+
+.row button {
+  background-color: #e8e378;
+  border: none;
+  border-radius: 1em;
+  color: #333333;
+  font-size: small;
+  height: 3em;
+  margin-bottom: 1em;
+  margin-left: 1em;
+  margin-top: 1em;
+  width: 98%;
+}
+
+.flip-card {
+  height: 200px;
+  margin: 2%;
+  margin-left: 6em;
+  margin-right: 1em;
+  width: 200px;
+}
+
+.flip-card-inner {
+  height: 100%;
+  position: relative;
+  text-align: center;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  width: 100%;
+}
+
+.flip-card-back h1 {
+  font-size: 1.5em;
+  margin-top: 1em;
+}
+
+.flip-card-back button {
+  font-size: 1em;
+  margin-right: 1em;
+  width: 40%;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  backface-visibility: hidden;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.flip-card-back {
+  background-color: rgb(105, 50, 145);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    overflow: scroll;
+  }
+
+  .cocteles h1 {
+    font-size: 1.5em;
+    margin-top: 5%;
+    text-align: center;
+  }
+
+  .cartas img {
+    height: 150px;
+    width: 150px;
+  }
+
+  .flip-card {
+    margin-right: -1em;
+    height: 150px;
+    margin-left: 3em;
+    width: 150px;
+  }
+
+  .flip-card-inner {
+    height: 150px;
+    width: 150px;
+  }
+
+  .flip-card-back h1 {
+    font-size: 1em;
+  }
+
+  .flip-card-back button {
+    font-size: 90%;
+    width: 50%;
+  }
+
+  .flip-card-back button {
+    width: 5em;
+  }
+
+  #cartas {
+    margin-left: -0.5em;
+  }
+
+  #load-more {
+    width: 93%;
+  }
+}

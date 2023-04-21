@@ -1,0 +1,120 @@
+@font-face {
+    font-family: otomanopee;
+    src: url(../other/otomanopee-one-regular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: otomanopee;
+    ;
+}
+
+body{
+    position: relative;
+    overflow: hidden;
+    background-color: #282323;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: white;
+    margin: 0;
+}
+.dropdown-toggle::after{
+    visibility: hidden;
+}
+.nav{
+    position: fixed;
+}
+.nav-link{
+    padding: 0;
+}
+
+.nav-link:focus, .nav-link:hover{
+    color: white;
+}
+.dropdown-menu{
+    background-color: rgba(86, 45, 112);
+    
+}
+
+.dropdown-item{
+    color: white;
+}
+.nav-link.log  {
+    color: white;
+    margin-top: 1.5em;
+    font-size: 20px;
+}
+.nav-link.log.reg{
+  margin-right: 3em;
+}
+
+.dropdown-toggle{
+    color: white;
+    
+
+}
+
+/* MODAL */
+.modal-content{
+    background-color: rgba(105, 50, 145);
+}
+
+.col-md-4{
+    margin: 1vh;
+}
+
+.btn-close{
+    background-color: red;
+    opacity: 100;
+}
+
+.modal-title{
+    color: white;
+}
+
+.ingredientes{
+    width: 60%;
+    text-align: justify;
+}
+
+.ingredientes h1{
+    color: #232121;
+    font-size: 2em;
+}
+
+.ingredientes h3{
+    font-size: 0.9em;
+    color: white;
+}
+
+.ingredientes ul{
+    color: white;
+    list-style: none;
+    font-size: 0.9em;
+}
+
+.img-fluid{
+    border: 0;
+    border-radius: 0.5em;
+}
+
+.col-sm-9 h1{
+    font-size: 1.5em;
+}
+
+.col-sm-9 h3{
+    color: white;
+    font-size: 2em;
+}
+
+.btn-warning{
+    width: 5%;
+}
+
+@media screen and (max-width: 800px){
+    .ingredientes{
+        width: 100%;
+    }
+}
