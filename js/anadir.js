@@ -1,6 +1,9 @@
+// Importar las funciones necesarias de Firestore y el objeto db desde firebase.js:
+
 import { db } from './firebase.js';
 import { collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
 
+// Crear una referencia al formulario y una función saveTask que guarda la información en la colección "solicitudes" de Firestore:
 const TaskForm = document.getElementById("formulario");
 const saveTask = (nombrecoc, recipiente, ingrediente, preparacion, imagen) =>
   addDoc(collection(db, "solicitudes"), {
@@ -10,7 +13,8 @@ const saveTask = (nombrecoc, recipiente, ingrediente, preparacion, imagen) =>
     preparacion,
     imagen,
   });
-//--
+
+//Obtener la lista de ingredientes desde Firestore y agregarlos como opciones al elemento select con ID "ingredientes":
 const ingredientes = [];
 const querySnapshot = await getDocs(collection(db, "ingredientes"));
 querySnapshot.forEach((doc) => {
@@ -25,18 +29,17 @@ ingredientes.forEach(element => {
   select.appendChild(opt)
 });
 
-// Asignar la primera opción del arreglo como seleccionada
 if (ingredientes.length > 0) {
   select.value = ingredientes[0];
 }
 
 console.log(ingredientes)
 
-//--
+//Agregar un evento 'submit' al formulario para guardar la información del formulario en Firestore:
 TaskForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  //--
+  
   const contenedorSelects = document.getElementById("contenedor-selects");
   const selectores = contenedorSelects.querySelectorAll("select");
   const valores = [];
@@ -46,7 +49,7 @@ TaskForm.addEventListener("submit", (e) => {
   });
 
   console.log(valores);
-  //--
+  
   const nombrecoc = TaskForm["nombre"];
   const recipiente = TaskForm["recipiente"];
   const ingrediente = TaskForm["ingredientes"];
@@ -63,6 +66,7 @@ TaskForm.addEventListener("submit", (e) => {
   TaskForm.reset();
 });
 
+// Agregar un evento 'click' al botón "agregar-select" para crear y agregar nuevos elementos select con las opciones de ingredientes:
 var numSelects = 0;
 
 var botonAgregar = document.getElementById("agregar-select");
@@ -91,24 +95,17 @@ botonAgregar.addEventListener("click", async function () {
 });
 
 
-// Obtener referencia al input y a la imagen
-
+// Obtener la imagen del input y mostrarla por pantalla
 const $seleccionArchivos = document.querySelector("#seleccionArchivos"),
   $imagenPrevisualizacion = document.querySelector("#imagenPrevisualizacion");
 
-// Escuchar cuando cambie
 $seleccionArchivos.addEventListener("change", () => {
-  // Los archivos seleccionados, pueden ser muchos o uno
   const archivos = $seleccionArchivos.files;
-  // Si no hay archivos salimos de la función y quitamos la imagen
   if (!archivos || !archivos.length) {
     $imagenPrevisualizacion.src = "";
     return;
   }
-  // Ahora tomamos el primer archivo, el cual vamos a previsualizar
   const primerArchivo = archivos[0];
-  // Lo convertimos a un objeto de tipo objectURL
   const objectURL = URL.createObjectURL(primerArchivo);
-  // Y a la fuente de la imagen le ponemos el objectURL
   $imagenPrevisualizacion.src = objectURL;
 });

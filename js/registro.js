@@ -10,7 +10,7 @@ signupForm.addEventListener('submit', async (e) => {
 try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password)
     console.log(userCredential) 
-    window.location.href="../login.html";
+    window.location.href="../index.html";
 
 } catch(error) {
     console.log(error)

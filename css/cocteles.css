@@ -111,6 +111,7 @@ body {
   .cartas img {
     height: 150px;
     width: 150px;
+    
   }
 
   .flip-card {
@@ -139,7 +140,7 @@ body {
   }
 
   #cartas {
-    margin-left: -0.5em;
+    margin-left: -1.5em;
   }
 
   #load-more {

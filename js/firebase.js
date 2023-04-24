@@ -6,6 +6,8 @@ import { getAuth, setPersistence, browserLocalPersistence, onAuthStateChanged } 
 import {
   getFirestore
 } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
+import { getStorage } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js";
+
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 export const firebaseConfig = {
@@ -22,6 +24,7 @@ export const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app)
 export const db = getFirestore();
+export const storage = getStorage(app);
 
 
 onAuthStateChanged(auth, (user) => {
@@ -41,14 +44,6 @@ onAuthStateChanged(auth, (user) => {
   });
 });
 
-(async () => {
-  try {
-    await setPersistence(auth, browserLocalPersistence);
-    console.log("Persistencia de sesión configurada correctamente.");
-  } catch (error) {
-    console.error("Error al configurar la persistencia de sesión:", error);
-  }
-});
 
 
 
