@@ -10,7 +10,7 @@ signInForm.addEventListener('submit', async (e) => {
     const password = signInForm['password'].value;
 
     try {
-        await setPersistence(auth, browserLocalPersistence);
+        // await setPersistence(auth, browserLocalPersistence);
         await signInWithEmailAndPassword(auth, email, password);
         console.log("Usuario autenticado y sesión establecida correctamente.");
         window.location.href="../index.html";
