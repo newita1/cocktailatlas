@@ -2,7 +2,7 @@
 
 import { db, storage } from './firebase.js';
 import { collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
-import { ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js";
+import {  ref, getDownloadURL, uploadBytes } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js";
 
 // Crear una referencia al formulario y una función saveTask que guarda la información en la colección "solicitudes" de Firestore:
 const TaskForm = document.getElementById("formulario");
@@ -27,47 +27,48 @@ if (ingredientes.length > 0) {
 }
 
 //Agregar un evento 'submit' al formulario para guardar la información del formulario en Firestore:
-TaskForm.addEventListener("submit", (e) => {
+TaskForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const file = document.querySelector("#seleccionArchivos").files[0];
-  const storageRef = storage.ref().child("imagenes/" + file.name);
+  const storageRef = ref(storage, "imagenes/" + file.name);
 
-  storageRef.put(file).then((snapshot) => {
-    console.log("Archivo subido con éxito");
-    return storageRef.getDownloadURL();
-  })
+  // Espera a que se suba la imagen
+  await uploadBytes(storageRef, file);
+  console.log("Archivo subido con éxito");
+
+  // Obtiene la URL de descarga de la imagen
+  const url = await getDownloadURL(storageRef);
 
   const contenedorSelects = document.getElementById("contenedor-selects");
   const selectores = contenedorSelects.querySelectorAll("select");
-  const ingredientes = [];
+  const ingredients = [];
 
   selectores.forEach((selector) => {
-    ingredientes.push(selector.value);
+    ingredients.push(selector.value);
   });
 
   console.log(ingredientes);
-  
-  const nombrecoc = TaskForm["nombre"];
-  const recipiente = TaskForm["recipiente"];
-  const ingrediente = TaskForm["ingredientes"];
-  const preparacion = TaskForm["preparacion"];
 
-  const saveTask = (nombrecoc, recipiente, ingredientes, preparacion, imagen) =>
-  addDoc(collection(db, "solicitudes"), {
-    nombrecoc,
-    recipiente,
-    ingredientes,
-    preparacion,  
-    imagen,
-  });
+  const nombre = TaskForm["nombre"];
+  const recipiente = TaskForm["recipiente"];
+  const instrucciones = TaskForm["preparacion"];
+
+  const saveTask = (nombre, recipiente, ingredients, instrucciones, imagen) =>
+    addDoc(collection(db, "solicitudes"), {
+      nombre,
+      recipiente,
+      ingredients,
+      instrucciones,
+      imagen,
+    });
 
   saveTask(
-    nombrecoc.value,
+    nombre.value,
     recipiente.value,
-    {  ingrediente: ingrediente.value, ingredientes },
-    preparacion.value,
-    { imagen: url}
+    ingredients ,
+    instrucciones.value,
+    url
   );
   TaskForm.reset();
 });

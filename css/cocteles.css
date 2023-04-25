@@ -38,7 +38,7 @@ body {
   width: 200px;
 }
 
-.row button {
+.cargarmas {
   background-color: #e8e378;
   border: none;
   border-radius: 1em;
@@ -75,7 +75,7 @@ body {
 
 .flip-card-back button {
   font-size: 1em;
-  margin-right: 1em;
+  /* margin-right: 1em; */
   width: 40%;
 }
 
@@ -96,6 +96,63 @@ body {
   color: white;
   transform: rotateY(180deg);
 }
+
+/* MODAL */
+.modal-content{
+  background-color: rgba(105, 50, 145);
+}
+
+.col-md-4{
+  margin: 1vh;
+}
+
+.btn-close{
+  background-color: red;
+  opacity: 100;
+  width: 5%;
+}
+
+.modal-title{
+  color: white;
+}
+
+.ingredientes{
+  width: 60%;
+  text-align: justify;
+}
+
+.ingredientes h1{
+  color: #232121;
+  font-size: 2em;
+}
+
+.ingredientes h3{
+  font-size: 0.9em;
+  color: white;
+}
+
+.ingredientes ul{
+  color: white;
+  list-style: none;
+  font-size: 0.9em;
+}
+
+.img-fluid{
+  border: 0;
+  border-radius: 0.5em;
+}
+
+.col-sm-9 h1{
+  font-size: 1.5em;
+}
+
+.col-sm-9 h3{
+  color: white;
+  font-size: 2em;
+}
+
+
+
 
 @media screen and (max-width: 800px) {
   body {
@@ -146,4 +203,7 @@ body {
   #load-more {
     width: 93%;
   }
+  .ingredientes{
+    width: 100%;
+}
 }
