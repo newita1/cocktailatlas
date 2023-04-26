@@ -1,0 +1,41 @@
+@import url(componentes.css);
+
+body{
+    overflow:visible !important;
+}
+.adm{
+
+        color: #E8E378 !important;
+    
+}
+.table>:not(caption)>*>*{
+    color: white;
+}
+
+.leer-mas, .btndelete, #botonAnterior, #botonSiguiente{
+    background-color: #e8e378;
+    border: none;
+    border-radius: 1em;
+    color: #333333;
+    font-size: small;
+    height: 3em;
+    padding: 1%;
+}
+.leer-mas{
+    height: 2em;
+    float: right;
+    margin-right: 26em;
+}
+#botonAnterior, #botonSiguiente{
+    padding: 0;
+    width: 3em;
+    flex-direction: row;
+}
+
+
+
+@media screen and (max-width: 800px){
+    .leer-mas{
+        width: 7em;
+    }
+}

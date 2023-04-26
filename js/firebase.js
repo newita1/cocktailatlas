@@ -30,6 +30,19 @@ export const storage = getStorage(app);
 onAuthStateChanged(auth, (user) => {
   if (user) {
     console.log("Usuario autenticado");
+    const email = user.email;
+    console.log(email)
+    if ( email === "fer@mail.com"){
+      var div = document.getElementById("menu");
+      div.innerHTML += `                    <li class="nav-item">
+      <a class="nav-link active adm" href="administrador.html">Administrar</a>
+  </li>`;
+    } else {
+      var div = document.getElementById("menu");
+      div.innerHTML += `                    <li class="nav-item">
+      <a class="nav-link active and" href="anadir.html">Añadir</a>
+  </li>`;
+    }
     document.getElementById("logout").style.display = 'block'
   } else {
     console.log("Usuario no autenticado");

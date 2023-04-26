@@ -4,6 +4,9 @@ body{
     overflow: scroll !important;
 }
 
+.and{
+    color: #E8E378 !important;
+}
 .col form, .col form input, .col form select{
     margin: 1em;
 }
