@@ -13,7 +13,7 @@ signInForm.addEventListener('submit', async (e) => {
         // await setPersistence(auth, browserLocalPersistence);
         await signInWithEmailAndPassword(auth, email, password);
         console.log("Usuario autenticado y sesión establecida correctamente.");
-        window.location.href="../index.html";
+        window.location.href = "../index.html";
     } catch (error) {
         console.error("Error al autenticar usuario y establecer sesión:", error);
     }

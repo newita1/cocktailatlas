@@ -34,7 +34,7 @@ function createCard(coctel) {
       </div>
     </div>
   `;
-  
+
   const btnInfo = card.querySelector(".btn-info");
   btnInfo.addEventListener("click", () => {
     updateModal(coctel);
@@ -46,7 +46,7 @@ function createCard(coctel) {
 function updateModal(coctel) {
   // Actualizar el nombre del cóctel
   document.getElementById("staticBackdropLabel").textContent = coctel.nombre;
-  
+
   // Actualizar la imagen del cóctel
   const modalImg = document.querySelector(".modal-body img");
   if (modalImg) {

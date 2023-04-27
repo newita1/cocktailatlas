@@ -7,13 +7,13 @@ signupForm.addEventListener('submit', async (e) => {
 
     const email = signupForm['email'].value
     const password = signupForm['password'].value
-try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password)
-    console.log(userCredential) 
-    window.location.href="../index.html";
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password)
+        console.log(userCredential)
+        window.location.href = "../index.html";
 
-} catch(error) {
-    console.log(error)
-}
+    } catch (error) {
+        console.log(error)
+    }
 
 })

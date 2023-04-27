@@ -1,6 +1,6 @@
 @import url(componentes.css);
 
-.fondo{
+.fondo {
     background-image: url(../img/header.jpg);
     z-index: 0;
     background-size: cover;
@@ -14,30 +14,30 @@
     color: white;
 }
 
-.fondo h1{
+.fondo h1 {
     font-size: 4em;
     margin-bottom: 0.5em;
 }
 
-.fondo h2{
+.fondo h2 {
     font-size: 1em;
     margin-bottom: 0.5em;
 }
 
 
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 800px) {
 
-    .fondo{
+    .fondo {
         height: 850px;
         position: fixed;
     }
 
-    .fondo h1{
+    .fondo h1 {
         font-size: 2rem;
     }
-    
-    .fondo h2{
+
+    .fondo h2 {
         font-size: 1rem;
     }
 }

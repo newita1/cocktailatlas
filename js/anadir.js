@@ -2,7 +2,7 @@
 
 import { db, storage } from './firebase.js';
 import { collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
-import {  ref, getDownloadURL, uploadBytes } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js";
+import { ref, getDownloadURL, uploadBytes } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js";
 
 // Crear una referencia al formulario y una función saveTask que guarda la información en la colección "solicitudes" de Firestore:
 const TaskForm = document.getElementById("formulario");
@@ -31,7 +31,7 @@ TaskForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const file = document.querySelector("#seleccionArchivos").files[0];
-  const storageRef = ref(storage, "imagenes/" + file.name);
+  const storageRef = ref(storage, file.name);
 
   // Espera a que se suba la imagen
   await uploadBytes(storageRef, file);
@@ -66,7 +66,7 @@ TaskForm.addEventListener("submit", async (e) => {
   saveTask(
     nombre.value,
     recipiente.value,
-    ingredients ,
+    ingredients,
     instrucciones.value,
     url
   );

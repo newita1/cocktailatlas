@@ -1,8 +1,8 @@
 @import url(componentes.css);
 
-.nav-link.active.cont{
+.nav-link.active.cont {
     color: #E8E378 !important;
-  }
+}
 
 .cajas {
     display: flex;
@@ -18,13 +18,14 @@
 
 }
 
-.informacion h1{
+.informacion h1 {
     font-size: 3em;
 }
 
-.informacion h2{
+.informacion h2 {
     font-size: 1.5em;
-    width: 100%; /* Establece el ancho en un 80% del ancho del elemento padre */
+    width: 100%;
+    /* Establece el ancho en un 80% del ancho del elemento padre */
 }
 
 .formulario {
@@ -43,7 +44,8 @@
 }
 
 .formulario input,
-.formulario textarea, .formulario select {
+.formulario textarea,
+.formulario select {
     padding: 1em;
     margin: 0.5em;
     border-radius: 1em;
@@ -66,38 +68,41 @@
 }
 
 @media screen and (max-width: 800px) {
-.cajas{
-    flex-direction: column;
-}
+    .cajas {
+        flex-direction: column;
+    }
 
-.informacion{
-    margin: 0;
-    height: 0.5em;
-}
+    .informacion {
+        margin: 0;
+        height: 0.5em;
+    }
 
-.informacion h1{
-margin-left: 0.5em;
-}
+    .informacion h1 {
+        margin-left: 0.5em;
+    }
 
-.informacion h2{
-    visibility:hidden ;
-}
+    .informacion h2 {
+        visibility: hidden;
+    }
 
-.formulario{
-    margin: 1em;
-}
+    .formulario {
+        margin: 1em;
+    }
 
-.formulario form{
-    margin: none;
-    margin-right: none;
-    background-color: transparent;
-    margin-left: 0;
-}
-.formulario input,
-.formulario textarea, .formulario select {
-    width: 20em;
-}
-.formulario button{
-    margin-right: 1.5em;
-}
+    .formulario form {
+        margin: none;
+        margin-right: none;
+        background-color: transparent;
+        margin-left: 0;
+    }
+
+    .formulario input,
+    .formulario textarea,
+    .formulario select {
+        width: 20em;
+    }
+
+    .formulario button {
+        margin-right: 1.5em;
+    }
 }

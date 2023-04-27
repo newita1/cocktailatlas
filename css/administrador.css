@@ -1,18 +1,23 @@
 @import url(componentes.css);
 
-body{
-    overflow:visible !important;
+body {
+    overflow: visible !important;
 }
-.adm{
 
-        color: #E8E378 !important;
-    
+.adm {
+
+    color: #E8E378 !important;
+
 }
-.table>:not(caption)>*>*{
+
+.table>:not(caption)>*>* {
     color: white;
 }
 
-.leer-mas, .btndelete, #botonAnterior, #botonSiguiente{
+.leer-mas,
+.btndelete,
+#botonAnterior,
+#botonSiguiente {
     background-color: #e8e378;
     border: none;
     border-radius: 1em;
@@ -21,12 +26,15 @@ body{
     height: 3em;
     padding: 1%;
 }
-.leer-mas{
+
+.leer-mas {
     height: 2em;
     float: right;
     margin-right: 26em;
 }
-#botonAnterior, #botonSiguiente{
+
+#botonAnterior,
+#botonSiguiente {
     padding: 0;
     width: 3em;
     flex-direction: row;
@@ -34,8 +42,8 @@ body{
 
 
 
-@media screen and (max-width: 800px){
-    .leer-mas{
+@media screen and (max-width: 800px) {
+    .leer-mas {
         width: 7em;
     }
 }
