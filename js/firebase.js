@@ -54,7 +54,7 @@ onAuthStateChanged(auth, (user) => {
   }
   document.getElementById("logout").addEventListener("click", () => {
     auth.signOut();
-    location.reload();
+    window.location.href = "../index.html";
 
   });
 });
