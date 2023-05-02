@@ -71,6 +71,9 @@ TaskForm.addEventListener("submit", async (e) => {
     url
   );
   TaskForm.reset();
+  alert(
+    "Receta enviada, pendiente de revision"
+  );
 });
 
 // Agregar un evento 'click' al botón "agregar-select" para crear y agregar nuevos elementos select con las opciones de ingredientes:
