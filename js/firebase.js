@@ -36,9 +36,16 @@ onAuthStateChanged(auth, (user) => {
     console.log(email);
     if (email === "fer@mail.com") {
       var div = document.getElementById("menu");
-      div.innerHTML += `                    <li class="nav-item">
-      <a class="nav-link active adm" href="administrador.html">Administrar</a>
-  </li>`;
+      div.innerHTML += `                    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle adm" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Administrador
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="administradorcoc.html">Administrar cócteles</a></li>
+        <li><a class="dropdown-item" href="administradorcont.html">Solicitudes de contacto</a></li>
+        <li><a class="dropdown-item" href="administradorsol.html">Solicitudes de recetas</a></li>
+      </ul>
+    </li>`;
     } else {
       var div = document.getElementById("menu");
       div.innerHTML += `                    <li class="nav-item">

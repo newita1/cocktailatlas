@@ -37,10 +37,27 @@ function createCard(coctel) {
 
   const btnInfo = card.querySelector(".btn-info");
   btnInfo.addEventListener("click", () => {
-    updateModal(coctel);
+  updateModal(coctel);
   });
 
   return card;
+}
+
+function updateCocteles(cocteles) {
+  const cartas = document.getElementById("cartas");
+  cartas.innerHTML = "";
+  cocteles.forEach(coctel => {
+    const card = createCard(coctel);
+    cartas.appendChild(card);
+  });
+}
+
+function filtrar() {
+  const texto = buscador.value.toLowerCase();
+  const coctelesFiltrados = data.filter(coctel =>
+    coctel.nombre.toLowerCase().indexOf(texto) !== -1
+  );
+  updateCocteles(coctelesFiltrados);
 }
 
 function updateModal(coctel) {
@@ -78,7 +95,6 @@ function updateModal(coctel) {
   }
 }
 
-
 initialData.forEach(coctel => {
   const card = createCard(coctel);
   document.getElementById("cartas").appendChild(card);
@@ -96,5 +112,7 @@ document.getElementById("load-more").addEventListener("click", () => {
 
   currentIndex += 16;
 });
+
+buscador.addEventListener('keyup', filtrar);
 
 console.log(data);

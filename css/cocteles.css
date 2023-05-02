@@ -4,6 +4,10 @@ body {
   overflow: unset !important;
 }
 
+.form-control.me-2{
+  width: 50em;
+  height: 3em;
+}
 
 .collapse {
   border: 1em;
@@ -23,6 +27,7 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 1%;
+  
 }
 
 #cartas {
@@ -155,10 +160,15 @@ body {
 
 
 @media screen and (max-width: 800px) {
+  
   body {
     overflow: scroll;
   }
 
+  .form-control.me-2{
+    width: 22em;
+    height: 3em;
+  }
   .cocteles h1 {
     font-size: 1.5em;
     margin-top: 5%;
