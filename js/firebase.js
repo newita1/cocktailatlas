@@ -29,11 +29,13 @@ export const auth = getAuth(app);
 export const db = getFirestore();
 export const storage = getStorage(app);
 
+// Hace autentificación para comprobar que el usuario esta contectado
 onAuthStateChanged(auth, (user) => {
   if (user) {
     console.log("Usuario autenticado");
     const email = user.email;
     console.log(email);
+    // Si el usuario coincide con el correo del admin, se carga en el menu una nueva sección de la pagina "Admin" y si no carga en el menu una sección "Cliente"
     if (email === "fer@mail.com") {
       var div = document.getElementById("menu");
       div.innerHTML += `                    <li class="nav-item dropdown">
@@ -52,13 +54,17 @@ onAuthStateChanged(auth, (user) => {
       <a class="nav-link active and" href="anadir.html">Añadir</a>
   </li>`;
     }
+    // Muestra el boton de logout
+    document.getElementById("email").innerHTML = email;
     document.getElementById("logout").style.display = "block";
   } else {
+    // Si el usuario no esta autentificado oculta el logout y muestra las opciones de registro y inicio de sesión
     console.log("Usuario no autenticado");
     document.getElementById("logout").style.display = "none";
     document.getElementById("iniciosesion").style.display = "block";
     document.getElementById("registrosesion").style.display = "block";
   }
+  // se asigna evento click al Logout, para cerrar sesión y enviar al inicio de la web
   document.getElementById("logout").addEventListener("click", () => {
     auth.signOut();
     window.location.href = "../index.html";

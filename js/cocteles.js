@@ -1,10 +1,15 @@
-import { db, auth } from './firebase.js'
+// Impoprtacion de firestore
+import { db } from './firebase.js'
 import { collection, getDocs } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
 
+// Constante con la coleccion de cocteles y recuperar documentos
 const colRef = collection(db, "cocteles");
 const docsSnap = await getDocs(colRef);
 
+// Constante data con array vacío 
 const data = [];
+
+// Un bucle foreach para obtener los datos y guardarlos en el array 
 docsSnap.forEach(doc => {
   data.push({
     imagen: doc.data().imagen,
@@ -15,8 +20,10 @@ docsSnap.forEach(doc => {
   });
 });
 
+// Se almacena en initialData los primeros 16 cócteles.
 const initialData = data.slice(0, 16);
 
+// Función para crear la estructura HTML de una tarjeta de cóctel con sus datos
 function createCard(coctel) {
   const card = document.createElement("div");
   card.classList.add("flip-card");
@@ -34,7 +41,7 @@ function createCard(coctel) {
       </div>
     </div>
   `;
-
+  // EventListener en el boton info para actualizar el modal al dar click
   const btnInfo = card.querySelector(".btn-info");
   btnInfo.addEventListener("click", () => {
   updateModal(coctel);
@@ -43,6 +50,7 @@ function createCard(coctel) {
   return card;
 }
 
+// Función para actualizar el contenido de las tarjetas de cócteles
 function updateCocteles(cocteles) {
   const cartas = document.getElementById("cartas");
   cartas.innerHTML = "";
@@ -52,6 +60,7 @@ function updateCocteles(cocteles) {
   });
 }
 
+// Función para filtrar los cócteles basado en la búsqueda del searchbox  
 function filtrar() {
   const texto = buscador.value.toLowerCase();
   const coctelesFiltrados = data.filter(coctel =>
@@ -60,6 +69,7 @@ function filtrar() {
   updateCocteles(coctelesFiltrados);
 }
 
+// Función para actualizar el contenido del modal
 function updateModal(coctel) {
   // Actualizar el nombre del cóctel
   document.getElementById("staticBackdropLabel").textContent = coctel.nombre;
@@ -95,13 +105,16 @@ function updateModal(coctel) {
   }
 }
 
+// Muestra los primeros 16 cocteles al cargar la pagina
 initialData.forEach(coctel => {
   const card = createCard(coctel);
   document.getElementById("cartas").appendChild(card);
 });
 
+// El indice se establece en 16 para cargar 16 nuevos cócteles
 let currentIndex = 16;
 
+// AddEventListener al boton de load-more para cargar las proximas 16
 document.getElementById("load-more").addEventListener("click", () => {
   const nextData = data.slice(currentIndex, currentIndex + 16);
 
@@ -109,10 +122,10 @@ document.getElementById("load-more").addEventListener("click", () => {
     const card = createCard(coctel);
     document.getElementById("cartas").appendChild(card);
   });
-
+  // Incrementa el indice en 16 para mostrar en vez de 16, 32.. y incrementando 16 por cada click
   currentIndex += 16;
 });
 
+// Agrega un listener al campo de búsqueda para filtrar los cocteles cuando se escribe algo
 buscador.addEventListener('keyup', filtrar);
 
-console.log(data);

@@ -1,5 +1,4 @@
 // Importar las funciones necesarias de Firestore y el objeto db desde firebase.js:
-
 import { db, storage } from './firebase.js';
 import { collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
 import { ref, getDownloadURL, uploadBytes } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js";
