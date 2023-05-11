@@ -18,3 +18,4 @@ signInForm.addEventListener('submit', async (e) => {
         console.error("Error al autenticar usuario y establecer sesión:", error);
     }
 });
+

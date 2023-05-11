@@ -64,10 +64,11 @@ function updateCocteles(cocteles) {
 function filtrar() {
   const texto = buscador.value.toLowerCase();
   const coctelesFiltrados = data.filter(coctel =>
-    coctel.nombre.toLowerCase().indexOf(texto) !== -1
+    coctel.nombre.toLowerCase().indexOf(texto) !== -1 
   );
   updateCocteles(coctelesFiltrados);
 }
+
 
 // Función para actualizar el contenido del modal
 function updateModal(coctel) {
@@ -128,4 +129,3 @@ document.getElementById("load-more").addEventListener("click", () => {
 
 // Agrega un listener al campo de búsqueda para filtrar los cocteles cuando se escribe algo
 buscador.addEventListener('keyup', filtrar);
-

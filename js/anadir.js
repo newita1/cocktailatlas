@@ -70,6 +70,7 @@ TaskForm.addEventListener("submit", async (e) => {
     url
   );
   TaskForm.reset();
+  $imagenPrevisualizacion.src = "./img/interrogación.png";
   alert(
     "Receta enviada, pendiente de revision"
   );
@@ -102,7 +103,6 @@ botonAgregar.addEventListener("click", async function () {
     document.getElementById("contenedor-selects").appendChild(nuevoSelect);
   }
 });
-
 
 // Obtener la imagen del input y mostrarla por pantalla
 const $seleccionArchivos = document.querySelector("#seleccionArchivos"),

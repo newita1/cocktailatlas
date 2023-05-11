@@ -39,7 +39,7 @@ body {
 }
 
 .dropdown-menu {
-    background-color: rgba(86, 45, 112);
+    background-color: rgb(86, 45, 112);
 
 }
 
@@ -59,6 +59,5 @@ body {
 
 .dropdown-toggle {
     color: white;
-
-
 }
+
