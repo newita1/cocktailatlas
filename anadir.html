@@ -27,12 +27,12 @@
             <div class="col">
                 <form id="formulario" action="" method="post" style="padding: 3em">
                     <div class="mb-3">
-                        <input class="form-control" type="file" id="seleccionArchivos">
+                        <input class="form-control" type="file" id="seleccionArchivos" required>
                     </div>
                     <input class="form-control" type="text" id="nombre" placeholder="Nombre del cóctel"
-                        aria-label="default input example">
+                        aria-label="default input example" required>
                     <input class="form-control" type="text" id="recipiente" placeholder="Recipiente"
-                        aria-label="default input example">
+                        aria-label="default input example" required>
 
 
                     <div id="contenedor-selects">
@@ -45,7 +45,7 @@
 
                     <div class="">
                         <textarea class="form-control" placeholder="Preparación del cóctel.." id="preparacion"
-                            style="height: 100px"></textarea>
+                            style="height: 100px" required></textarea>
                     </div>
                     <button type="submit" id="enviar" class="btn btn-warning">Enviar Receta</button>
 
