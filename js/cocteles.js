@@ -1,7 +1,10 @@
 // Impoprtacion de firestore
 import { db } from './firebase.js'
 import { collection, getDocs } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
+import componentes from "./componentes.js";
 
+
+componentes().then( async () => {
 // Constante con la coleccion de cocteles y recuperar documentos
 const colRef = collection(db, "cocteles");
 const docsSnap = await getDocs(colRef);
@@ -129,3 +132,4 @@ document.getElementById("load-more").addEventListener("click", () => {
 
 // Agrega un listener al campo de búsqueda para filtrar los cocteles cuando se escribe algo
 buscador.addEventListener('keyup', filtrar);
+})
