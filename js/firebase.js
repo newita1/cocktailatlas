@@ -64,7 +64,7 @@ onAuthStateChanged(auth, (user) => {
       document.getElementById("iniciosesion").style.display = "block";
       document.getElementById("registrosesion").style.display = "block";
       document.getElementById("logout").style.display = "none";
-    }, 500)
+    }, 1000)
       
   }
   // se asigna evento click al Logout, para cerrar sesión y enviar al inicio de la web
