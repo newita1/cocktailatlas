@@ -33,7 +33,6 @@ export const storage = getStorage(app);
 // Hace autentificación para comprobar que el usuario esta contectado
 
 componentes().then(() => {
-
   onAuthStateChanged(auth, (user) => {
     if (user) {
       console.log("Usuario autenticado");
@@ -56,18 +55,18 @@ componentes().then(() => {
         var div = document.getElementById("menu");
         div.innerHTML += `                    <li class="nav-item">
         <a class="nav-link active and" href="anadir.html">Añadir</a>
-    </li>`;
+      </li>`;
       }
       // Muestra el boton de logout
       document.getElementById("email").innerHTML = email;
       document.getElementById("logout").style.display = "block";
     } else {
       // Si el usuario no esta autentificado oculta el logout y muestra las opciones de registro y inicio de sesión
-      
-        console.log("Usuario no autenticado");
-        document.getElementById("iniciosesion").style.display = "block";
-        document.getElementById("registrosesion").style.display = "block";
-        document.getElementById("logout").style.display = "none";
+
+      console.log("Usuario no autenticado");
+      document.getElementById("iniciosesion").style.display = "block";
+      document.getElementById("registrosesion").style.display = "block";
+      document.getElementById("logout").style.display = "none";
     }
     // se asigna evento click al Logout, para cerrar sesión y enviar al inicio de la web
     document.getElementById("logout").addEventListener("click", () => {
@@ -75,6 +74,4 @@ componentes().then(() => {
       window.location.href = "../index.html";
     });
   });
-
 });
-
