@@ -2,15 +2,13 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-import {
-  getAuth,
-  setPersistence,
-  browserLocalPersistence,
-  onAuthStateChanged,
-} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+import { getAuth, setPersistence, browserLocalPersistence, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
 import { getStorage } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js";
+<<<<<<< HEAD
 import componentes from "./componentes.js";
+=======
+>>>>>>> parent of f746d71 (a)
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -61,6 +59,7 @@ componentes().then(() => {
       document.getElementById("email").innerHTML = email;
       document.getElementById("logout").style.display = "block";
     } else {
+<<<<<<< HEAD
       // Si el usuario no esta autentificado oculta el logout y muestra las opciones de registro y inicio de sesión
 
       console.log("Usuario no autenticado");
@@ -73,5 +72,27 @@ componentes().then(() => {
       auth.signOut();
       window.location.href = "../index.html";
     });
+=======
+      var div = document.getElementById("menu");
+      div.innerHTML += `                    <li class="nav-item">
+      <a class="nav-link active and" href="anadir.html">Añadir</a>
+  </li>`;
+    }
+    // Muestra el boton de logout
+    document.getElementById("email").innerHTML = email;
+    document.getElementById("logout").style.display = "block";
+  } else {
+    // Si el usuario no esta autentificado oculta el logout y muestra las opciones de registro y inicio de sesión
+    console.log("Usuario no autenticado");
+    document.getElementById("iniciosesion").style.display = "block";
+    document.getElementById("registrosesion").style.display = "block";
+    document.getElementById("logout").style.display = "none";
+  }
+  // se asigna evento click al Logout, para cerrar sesión y enviar al inicio de la web
+  document.getElementById("logout").addEventListener("click", () => {
+    auth.signOut();
+    window.location.href = "../index.html";
+
+>>>>>>> parent of f746d71 (a)
   });
 });
