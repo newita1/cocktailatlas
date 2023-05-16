@@ -59,10 +59,14 @@ onAuthStateChanged(auth, (user) => {
     document.getElementById("logout").style.display = "block";
   } else {
     // Si el usuario no esta autentificado oculta el logout y muestra las opciones de registro y inicio de sesión
+    const time = setInterval(() => {
+      clearInterval(time);
       console.log("Usuario no autenticado");
       document.getElementById("iniciosesion").style.display = "block";
       document.getElementById("registrosesion").style.display = "block";
       document.getElementById("logout").style.display = "none";
+    }, 100)
+      
   }
   // se asigna evento click al Logout, para cerrar sesión y enviar al inicio de la web
   document.getElementById("logout").addEventListener("click", () => {
