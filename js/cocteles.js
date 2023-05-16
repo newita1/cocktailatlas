@@ -1,25 +1,29 @@
 // Impoprtacion de firestore
-import { db } from './firebase.js'
-import { collection, getDocs } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
+import { db } from "./firebase.js";
+import {
+  collection,
+  getDocs,
+} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
 import componentes from "./componentes.js";
 
 
-componentes().then( async () => {
-// Constante con la coleccion de cocteles y recuperar documentos
-const colRef = collection(db, "cocteles");
-const docsSnap = await getDocs(colRef);
+componentes().then(async () => {
+  // Constante con la coleccion de cocteles y recuperar documentos
+  const colRef = collection(db, "cocteles");
+  const docsSnap = await getDocs(colRef);
 
-// Constante data con array vacío 
-const data = [];
+  // Constante data con array vacío
+  const data = [];
 
-// Un bucle foreach para obtener los datos y guardarlos en el array 
-docsSnap.forEach(doc => {
-  data.push({
-    imagen: doc.data().imagen,
-    nombre: doc.data().nombre,
-    ingredients: doc.data().ingredients,
-    instrucciones: doc.data().instrucciones,
-    recipiente: doc.data().recipiente
+  // Un bucle foreach para obtener los datos y guardarlos en el array
+  docsSnap.forEach((doc) => {
+    data.push({
+      imagen: doc.data().imagen,
+      nombre: doc.data().nombre,
+      ingredients: doc.data().ingredients,
+      instrucciones: doc.data().instrucciones,
+      recipiente: doc.data().recipiente,
+    });
   });
 });
 
@@ -47,7 +51,7 @@ function createCard(coctel) {
   // EventListener en el boton info para actualizar el modal al dar click
   const btnInfo = card.querySelector(".btn-info");
   btnInfo.addEventListener("click", () => {
-  updateModal(coctel);
+    updateModal(coctel);
   });
 
   return card;
@@ -57,21 +61,20 @@ function createCard(coctel) {
 function updateCocteles(cocteles) {
   const cartas = document.getElementById("cartas");
   cartas.innerHTML = "";
-  cocteles.forEach(coctel => {
+  cocteles.forEach((coctel) => {
     const card = createCard(coctel);
     cartas.appendChild(card);
   });
 }
 
-// Función para filtrar los cócteles basado en la búsqueda del searchbox  
+// Función para filtrar los cócteles basado en la búsqueda del searchbox
 function filtrar() {
   const texto = buscador.value.toLowerCase();
-  const coctelesFiltrados = data.filter(coctel =>
-    coctel.nombre.toLowerCase().indexOf(texto) !== -1 
+  const coctelesFiltrados = data.filter(
+    (coctel) => coctel.nombre.toLowerCase().indexOf(texto) !== -1
   );
   updateCocteles(coctelesFiltrados);
 }
-
 
 // Función para actualizar el contenido del modal
 function updateModal(coctel) {
@@ -85,11 +88,13 @@ function updateModal(coctel) {
   }
 
   // Actualizar la lista de ingredientes
-  const ingredientesList = document.querySelector(".modal-body .ingredientes ul");
+  const ingredientesList = document.querySelector(
+    ".modal-body .ingredientes ul"
+  );
   if (ingredientesList) {
-    ingredientesList.innerHTML = '';
-    console.log(coctel)
-    coctel.ingredients.forEach(ingrediente => {
+    ingredientesList.innerHTML = "";
+    console.log(coctel);
+    coctel.ingredients.forEach((ingrediente) => {
       const listItem = document.createElement("li");
       listItem.textContent = ingrediente;
       ingredientesList.appendChild(listItem);
@@ -110,7 +115,7 @@ function updateModal(coctel) {
 }
 
 // Muestra los primeros 16 cocteles al cargar la pagina
-initialData.forEach(coctel => {
+initialData.forEach((coctel) => {
   const card = createCard(coctel);
   document.getElementById("cartas").appendChild(card);
 });
@@ -122,7 +127,7 @@ let currentIndex = 16;
 document.getElementById("load-more").addEventListener("click", () => {
   const nextData = data.slice(currentIndex, currentIndex + 16);
 
-  nextData.forEach(coctel => {
+  nextData.forEach((coctel) => {
     const card = createCard(coctel);
     document.getElementById("cartas").appendChild(card);
   });
@@ -131,5 +136,4 @@ document.getElementById("load-more").addEventListener("click", () => {
 });
 
 // Agrega un listener al campo de búsqueda para filtrar los cocteles cuando se escribe algo
-buscador.addEventListener('keyup', filtrar);
-})
+buscador.addEventListener("keyup", filtrar);
